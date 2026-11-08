@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="wrap">
+      <nav class="nav" aria-label="Main">
+        <a class="brand" href={`${base}/`}>ctrl-cv</a>
+        <div class="nav-links">
+          <a href={`${base}/#how`}>How it works</a>
+          <a href={`${base}/#connect`}>Connect</a>
+          <a class="button" href="https://ctrl-cv.io/login">Sign in</a>
+        </div>
+      </nav>
+      <main>
+        <slot />
+      </main>
+      <footer>
+        <div class="foot">
+          <span>&copy; 2026 ctrl-io</span>
+          <div class="foot-links">
+            <a href={`${base}/terms/`}>Terms</a>
+            <a href={`${base}/privacy/`}>Privacy</a>
+            <a href="mailto:help@ctrl-cv.io">help@ctrl-cv.io</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

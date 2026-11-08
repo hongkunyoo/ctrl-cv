@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const mcpUrl = 'https://ctrl-cv.io/mcp';
+---
+
+<Layout
+  title="ctrl-cv: a clipboard for your AI conversations"
+  description="Tell one AI to copy. Tell another to paste. ctrl-cv moves text between AI assistants over MCP."
+>
+  <section class="hero">
+    <div>
+      <div class="keys" aria-hidden="true"><kbd>Ctrl</kbd>+<kbd>C</kbd><span>then</span><kbd>Ctrl</kbd>+<kbd>V</kbd></div>
+      <h1>A clipboard for your AI conversations.</h1>
+      <p class="lede">Tell one AI to copy. Tell another to paste. Stop re-explaining your work every time you switch assistants.</p>
+      <div class="cta">
+        <a class="button" href="https://ctrl-cv.io/login">Continue with Google</a>
+        <a class="button ghost" href="#connect">Connect your AI</a>
+      </div>
+    </div>
+    <div class="demo" role="img" aria-label="Example: one assistant saves text to ctrl-cv and returns an id, and another assistant pastes that text.">
+      <div class="chat" aria-hidden="true">
+        <p class="chat-title">One assistant</p>
+        <p class="msg you">Copy that launch plan to ctrl-cv.</p>
+        <p class="msg ai">Saved. The id is <code>d95eaa2f</code>.</p>
+      </div>
+      <div class="chat" aria-hidden="true">
+        <p class="chat-title">Another assistant</p>
+        <p class="msg you">Paste from ctrl-cv and find the holes in it.</p>
+        <p class="msg ai">Here is the plan you saved. Three things stand out&hellip;</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="how">
+    <h2>How it works</h2>
+    <p class="section-lede">Just ask in plain language. There is nothing new to learn.</p>
+    <ol class="steps">
+      <li>
+        <h3>Copy</h3>
+        <p>Ask any connected AI to copy something to ctrl-cv. You get back a short id.</p>
+      </li>
+      <li>
+        <h3>Switch</h3>
+        <p>Open a different AI app, on the same device or another one.</p>
+      </li>
+      <li>
+        <h3>Paste</h3>
+        <p>Ask it to paste from ctrl-cv. Without an id, you get your most recent clip.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="band" id="connect">
+    <h2>Connect your AI</h2>
+    <p class="section-lede">Add this address as a remote MCP server or custom connector in your AI app, then sign in with Google.</p>
+    <div class="endpoint">
+      <code id="mcp-url">{mcpUrl}</code>
+      <button id="copy-url" type="button">Copy</button>
+    </div>
+    <p class="note">Works with apps that support remote MCP servers, such as Claude and ChatGPT. Whether you can add one, and whether an AI can save to it, depends on your app and plan.</p>
+  </section>
+
+  <section class="band">
+    <h2>Your clipboard stays yours</h2>
+    <p class="section-lede">Built for moving text around, not for keeping it.</p>
+    <div class="facts">
+      <div>
+        <h3>Private to your account</h3>
+        <p>Each Google account has its own clipboard. Other accounts can't read your clips, even with an id.</p>
+      </div>
+      <div>
+        <h3>Only what you ask for</h3>
+        <p>ctrl-cv saves text when you tell an AI to copy it. It doesn't watch your conversations.</p>
+      </div>
+      <div>
+        <h3>See and delete on the web</h3>
+        <p>Review your clips in your browser, and delete one or all of them at any time.</p>
+      </div>
+      <div>
+        <h3>Gone after 30 days</h3>
+        <p>Clips are deleted automatically 30 days after they are saved.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <h2>Questions</h2>
+    <details>
+      <summary>Is the copy exact?</summary>
+      <p>ctrl-cv stores exactly the text it receives, but your AI writes that text. AI apps are told to copy word for word, yet they can make mistakes. For anything where exact wording matters, check the clip on the web.</p>
+    </details>
+    <details>
+      <summary>How much can I save?</summary>
+      <p>Up to about 1 MB per clip, which is roughly a million English characters. Each account can hold 10 million characters; past that, your oldest clips are removed first.</p>
+    </details>
+    <details>
+      <summary>Should I save passwords or other secrets?</summary>
+      <p>No. Clips are kept on our servers and shown to whichever AI you ask to paste them.</p>
+    </details>
+    <details>
+      <summary>How do I contact you?</summary>
+      <p>Write to <a href="mailto:help@ctrl-cv.io">help@ctrl-cv.io</a>.</p>
+    </details>
+  </section>
+</Layout>
+
+<script>
+  const button = document.getElementById('copy-url');
+  const url = document.getElementById('mcp-url');
+  button?.addEventListener('click', async () => {
+    await navigator.clipboard.writeText(url?.textContent ?? '');
+    button.textContent = 'Copied';
+    setTimeout(() => {
+      button.textContent = 'Copy';
+    }, 1500);
+  });
+</script>
