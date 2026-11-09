@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const waitlist = 'mailto:help@ctrl-cv.io?subject=ctrl-cv%20Pro%20waitlist';
+const sales = 'mailto:help@ctrl-cv.io?subject=ctrl-cv%20Enterprise';
+---
+
+<Layout
+  title="Pricing: ctrl-cv"
+  description="Try ctrl-cv with 30 free copies, no card needed. Standard for moving text between AI apps, Pro for keeping it, Enterprise for teams."
+>
+  <section class="pricing-head">
+    <h1>Pricing</h1>
+    <p class="lede">Try ctrl-cv with 30 free copies. No card needed.</p>
+  </section>
+
+  <section class="plans" aria-label="Plans">
+    <article class="plan">
+      <h2>Standard</h2>
+      <p class="price">$4<span> / month</span></p>
+      <p class="price-note">Or $36 billed yearly, $3 a month.</p>
+      <a class="button" href="https://app.ctrl-cv.io/login">Start with 30 free copies</a>
+      <ul>
+        <li>Copy and paste across your AI apps</li>
+        <li>Clips kept for 30 days</li>
+        <li>Up to 10 million characters</li>
+        <li>See and delete clips on the web</li>
+        <li>Send to me, 20 times a day</li>
+      </ul>
+    </article>
+
+    <article class="plan">
+      <h2>Pro <span class="soon">Coming soon</span></h2>
+      <p class="price">$7<span> / month</span></p>
+      <p class="price-note">Or $60 billed yearly, about $5 a month.</p>
+      <a class="button ghost" href={waitlist}>Join the waitlist</a>
+      <p class="includes">Everything in Standard, plus:</p>
+      <ul>
+        <li>Clips kept for 1 year</li>
+        <li>Pin clips so they never expire</li>
+        <li>Up to 100 million characters</li>
+        <li>Name a clip and paste it by name</li>
+        <li>Search your clips on the web</li>
+      </ul>
+    </article>
+
+    <article class="plan">
+      <h2>Enterprise</h2>
+      <p class="price">Custom</p>
+      <p class="price-note">Annual contract for teams of 10 or more.</p>
+      <a class="button ghost" href={sales}>Contact us</a>
+      <p class="includes">Talk to us about:</p>
+      <ul>
+        <li>Shared team clipboards</li>
+        <li>Single sign-on</li>
+        <li>Admin controls and audit logs</li>
+        <li>Blocking passwords and other secrets</li>
+        <li>Your own retention rules</li>
+        <li>Data processing agreements</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="band">
+    <h2>Questions</h2>
+    <details>
+      <summary>How does the free trial work?</summary>
+      <p>Your first 30 copies are free, with no card and no time limit. After that, you'll need a plan to copy new text. You can still paste, view, and delete your existing clips until they expire.</p>
+    </details>
+    <details>
+      <summary>Is there a limit on clip size?</summary>
+      <p>Up to about 1 MB per clip on every plan, which is roughly a million English characters.</p>
+    </details>
+    <details>
+      <summary>When will Pro be available?</summary>
+      <p>We're still building it. Join the waitlist and we'll email you when it's ready.</p>
+    </details>
+  </section>
+</Layout>

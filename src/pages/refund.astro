@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Layout title="Refund Policy | ctrl-cv" description="How cancellations and refunds work for ctrl-cv plans.">
+  <article class="legal">
+    <h1>Refund Policy</h1>
+    <p class="updated">Last updated: November 9, 2026</p>
+
+    <p>Your first 30 copies are free and need no card, so you can try ctrl-cv before you pay. This policy applies to paid plans. Payments are processed by our online reseller and Merchant of Record, Paddle.com, which issues refunds to your original payment method.</p>
+
+    <h2>Refunds</h2>
+    <ul>
+      <li><strong>First payment.</strong> If you ask within 14 days of your first payment for a plan, we will refund it in full.</li>
+      <li><strong>Renewals.</strong> If you ask within 14 days of a renewal that you didn't mean to continue, and you haven't made any copies since that renewal, we will refund that renewal in full.</li>
+      <li><strong>Service problems.</strong> If a problem on our side kept you from using ctrl-cv, tell us and we will refund the affected period.</li>
+      <li><strong>If we discontinue a plan.</strong> We will refund the unused part of any period you have already paid for.</li>
+    </ul>
+    <p>Nothing in this policy limits a refund or withdrawal right you have under the law that applies to you.</p>
+
+    <h2>How to ask for a refund</h2>
+    <p>Email <a href="mailto:help@ctrl-cv.io">help@ctrl-cv.io</a> from the address on your Paddle receipt, or use the link in that receipt. A refund can take several days to reach your account, depending on your payment provider.</p>
+
+    <h2>Cancelling</h2>
+    <p>You can cancel at any time under <strong>Billing</strong>, then <strong>Manage subscription</strong>. Your plan stays active until the end of the period you have paid for, and it won't renew after that. Cancelling doesn't refund the current period on its own. After your plan ends, you can still paste, view, and delete your existing clips until they expire, but you can't copy new text.</p>
+
+    <h2>More</h2>
+    <p>See our <a href={`${base}/terms/`}>Terms of Service</a> for the full terms of paid plans.</p>
+  </article>
+</Layout>
