@@ -9,44 +9,41 @@ const mcpUrl = 'https://app.ctrl-cv.io/mcp';
   description="Tell one AI to copy. Tell another to paste. ctrl-cv moves text between AI assistants over MCP."
 >
   <section class="hero">
-    <div>
-      <div class="keys" aria-hidden="true"><kbd>Ctrl</kbd>+<kbd>C</kbd><span>then</span><kbd>Ctrl</kbd>+<kbd>V</kbd></div>
-      <h1>A clipboard for your AI conversations.</h1>
-      <p class="lede">Tell one AI to copy. Tell another to paste. Stop re-explaining your work every time you switch assistants.</p>
-      <div class="cta">
-        <a class="button" href="https://app.ctrl-cv.io/login">Continue with Google</a>
-        <a class="button ghost" href="#connect">Connect your AI</a>
-      </div>
-    </div>
-    <div class="demo" role="img" aria-label="Example: one assistant saves text to ctrl-cv and returns an id, and another assistant pastes that text.">
-      <div class="chat" aria-hidden="true">
-        <p class="chat-title">One assistant</p>
-        <p class="msg you">Copy that launch plan to ctrl-cv.</p>
-        <p class="msg ai">Saved. The id is <code>d95eaa2f</code>.</p>
-      </div>
-      <div class="chat" aria-hidden="true">
-        <p class="chat-title">Another assistant</p>
-        <p class="msg you">Paste from ctrl-cv and find the holes in it.</p>
-        <p class="msg ai">Here is the plan you saved. Three things stand out&hellip;</p>
-      </div>
+    <h1><span class="selected">Copy in one AI.</span><br /><span class="pasted">Paste in another.</span></h1>
+    <p class="lede">Stop re-explaining your work every time you switch assistants. ctrl-cv carries your text from one to the other.</p>
+    <div class="cta">
+      <a class="button" href="https://app.ctrl-cv.io/login">Continue with Google</a>
+      <a class="button ghost" href="#connect">Connect your AI</a>
     </div>
   </section>
 
-  <section class="band" id="how">
-    <h2>How it works</h2>
-    <p class="section-lede">Just ask in plain language. There is nothing new to learn.</p>
+  <section class="film" id="how" aria-label="How it works">
+    <video
+      id="demo"
+      src="/demo.mp4"
+      poster="/demo-poster.jpg"
+      width="1920"
+      height="1080"
+      autoplay
+      muted
+      loop
+      playsinline
+      controls
+      preload="metadata"
+      aria-label="Demo: one assistant copies a launch plan to ctrl-cv, then another assistant pastes the same text."
+    ></video>
     <ol class="steps">
       <li>
-        <h3>Copy</h3>
-        <p>Ask any connected AI to copy something to ctrl-cv. You get back a short id.</p>
+        <h2>Copy</h2>
+        <p>Ask any connected AI to copy something to ctrl-cv.</p>
       </li>
       <li>
-        <h3>Switch</h3>
+        <h2>Switch</h2>
         <p>Open a different AI app, on the same device or another one.</p>
       </li>
       <li>
-        <h3>Paste</h3>
-        <p>Ask it to paste from ctrl-cv. Without an id, you get your most recent clip.</p>
+        <h2>Paste</h2>
+        <p>Ask it to paste from ctrl-cv. You get your most recent clip.</p>
       </li>
     </ol>
   </section>
@@ -99,6 +96,10 @@ const mcpUrl = 'https://app.ctrl-cv.io/mcp';
       <p>No. Clips are kept on our servers and shown to whichever AI you ask to paste them.</p>
     </details>
     <details>
+      <summary>Can I paste an older clip?</summary>
+      <p>Yes. Each clip has a short id, which your AI tells you when it copies and which you can see on the web. Ask your AI to paste that id.</p>
+    </details>
+    <details>
       <summary>How do I contact you?</summary>
       <p>Write to <a href="mailto:help@ctrl-cv.io">help@ctrl-cv.io</a>.</p>
     </details>
@@ -106,6 +107,12 @@ const mcpUrl = 'https://app.ctrl-cv.io/mcp';
 </Layout>
 
 <script>
+  const demo = document.getElementById('demo');
+  if (demo instanceof HTMLVideoElement && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    demo.removeAttribute('autoplay');
+    demo.pause();
+  }
+
   const button = document.getElementById('copy-url');
   const url = document.getElementById('mcp-url');
   button?.addEventListener('click', async () => {
