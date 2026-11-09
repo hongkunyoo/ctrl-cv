@@ -1,5 +1,7 @@
 # ctrl-cv
 
+[![mcptry](https://mcptry.com/badge/io.ctrl-cv/clipboard)](https://mcptry.com/servers/io.ctrl-cv/clipboard)
+
 A personal clipboard for your AI apps, over [MCP](https://modelcontextprotocol.io). Ask one AI to copy text, then ask another to paste it.
 
 - Website: https://ctrl-cv.io
