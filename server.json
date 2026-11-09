@@ -1,0 +1,34 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.ctrl-cv/clipboard",
+  "title": "ctrl-cv",
+  "description": "A personal clipboard for your AI apps. Copy text in one and paste it in another.",
+  "version": "1.0.0",
+  "websiteUrl": "https://ctrl-cv.io/docs/",
+  "repository": {
+    "url": "https://github.com/hongkunyoo/ctrl-cv",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://ctrl-cv.io/icon-192.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "192x192"
+      ]
+    },
+    {
+      "src": "https://ctrl-cv.io/icon-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://app.ctrl-cv.io/mcp"
+    }
+  ]
+}
