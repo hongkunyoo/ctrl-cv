@@ -2,12 +2,25 @@
 import Layout from '../layouts/Layout.astro';
 
 const mcpUrl = 'https://app.ctrl-cv.io/mcp';
+const title = 'ctrl-cv: Copy and Paste Between ChatGPT, Claude & AI Apps';
+const description = 'A shared clipboard for your AI apps. Save text in ChatGPT, Claude, or any MCP app and paste it into another. First 30 copies free.';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'ctrl-cv',
+  url: 'https://ctrl-cv.io/',
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '4', priceCurrency: 'USD' },
+};
 ---
 
 <Layout
-  title="ctrl-cv: a clipboard for your AI conversations"
-  description="Tell one AI to copy. Tell another to paste. ctrl-cv moves text between AI assistants over MCP."
+  title={title}
+  description={description}
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
   <section class="hero">
     <h1><span class="selected">Copy in one AI.</span><br /><span class="pasted">Paste in another.</span></h1>
     <p class="lede">Simple copy and paste across your AI apps. Save text in one, pick it up in any other.</p>

@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Layout title="Page not found | ctrl-cv" description="This page doesn't exist." noindex>
+  <article class="legal">
+    <h1>Page not found</h1>
+    <p>This page doesn't exist or has moved. <a href={`${base}/`}>Go to the home page</a>.</p>
+  </article>
+</Layout>
