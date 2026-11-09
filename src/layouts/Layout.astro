@@ -12,12 +12,32 @@ interface Props {
 const { title, description, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const analyticsId = 'G-JFFHPPPMZ9';
+// Visitors from the EEA, the UK, and Switzerland get no analytics cookies.
+const noCookieRegions = [
+  'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU',
+  'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH',
+];
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    {import.meta.env.PROD && (
+      <Fragment>
+        <script define:vars={{ analyticsId, noCookieRegions }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'granted' });
+          gtag('consent', 'default', { analytics_storage: 'denied', region: noCookieRegions });
+          gtag('js', new Date());
+          gtag('config', analyticsId, { allow_google_signals: false, allow_ad_personalization_signals: false });
+        </script>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`}></script>
+      </Fragment>
+    )}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
