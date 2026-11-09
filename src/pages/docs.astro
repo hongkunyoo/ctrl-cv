@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const mcpUrl = 'https://app.ctrl-cv.io/mcp';
+---
+
+<Layout title="ctrl-cv Docs: Connect and Use Your AI Clipboard" description="How to connect ctrl-cv to Claude, ChatGPT, or any MCP app, what its copy and paste tools do, example prompts, limits, and troubleshooting.">
+  <article class="legal">
+    <h1>ctrl-cv docs</h1>
+    <p class="updated">Last updated: November 9, 2026</p>
+
+    <p>ctrl-cv is a personal clipboard for your AI apps. You ask one AI to copy text, then ask another to paste it. Each Google account has its own clipboard.</p>
+
+    <h2>Connect your AI app</h2>
+    <ol>
+      <li>Copy this address: <code>{mcpUrl}</code></li>
+      <li>In your AI app, add it as a remote MCP server or custom connector. Claude and ChatGPT both support this.</li>
+      <li>When the app asks you to sign in, continue with Google. Use the same Google account in every app, because each account has its own clipboard.</li>
+      <li>Ask your AI to copy something to ctrl-cv.</li>
+    </ol>
+    <p>You can see and delete your clips at <a href="https://app.ctrl-cv.io/clips">app.ctrl-cv.io/clips</a>.</p>
+
+    <h2>Tools</h2>
+    <ul>
+      <li><strong><code>copy</code></strong> saves the text you ask for, exactly as written, and returns the clip's id. It takes <code>content</code>, up to 1,000,000 bytes of UTF-8.</li>
+      <li><strong><code>paste</code></strong> returns a saved clip's text. It takes an optional <code>id</code>. Without one, you get your most recent clip. It only reads.</li>
+    </ul>
+
+    <h2>Example prompts</h2>
+    <ul>
+      <li>"Copy your last answer to ctrl-cv."</li>
+      <li>"Paste from ctrl-cv."</li>
+      <li>"Copy the code block above to ctrl-cv and tell me the id."</li>
+      <li>"Paste ctrl-cv clip 3f2a9c1e."</li>
+      <li>"Paste my latest ctrl-cv clip and turn it into a checklist."</li>
+    </ul>
+
+    <h2>Limits</h2>
+    <ul>
+      <li>Each clip can be up to 1,000,000 bytes, roughly a million English characters.</li>
+      <li>Each account can store up to 10 million characters. Beyond that, your oldest clips are removed first.</li>
+      <li>Clips are deleted automatically 30 days after they are saved.</li>
+      <li>Your first 30 copies are free. After that, you need a <a href={`${base}/pricing/`}>plan</a> to copy new text. You can still paste, view, and delete your existing clips until they expire.</li>
+    </ul>
+
+    <h2>Troubleshooting</h2>
+    <ul>
+      <li><strong>A clip is missing in another app.</strong> Check that both apps are signed in with the same Google account. Clips also expire after 30 days.</li>
+      <li><strong>"The clipboard is empty."</strong> Nothing has been saved to this account yet, or every clip has expired or been deleted.</li>
+      <li><strong>"No clip found with id".</strong> Check the id. The clip may have expired, been deleted, or belong to another account.</li>
+      <li><strong>"This text is too long to save".</strong> Split the text into clips of up to 1,000,000 bytes.</li>
+      <li><strong>"used its 30 free copies".</strong> Nothing new was saved. See <a href={`${base}/pricing/`}>plans</a>. Your existing clips can still be pasted.</li>
+      <li><strong>Sign-in or connection fails.</strong> Remove ctrl-cv from your AI app and add it again. If it still fails, email us the name of your app and the error.</li>
+    </ul>
+
+    <h2>Disconnect</h2>
+    <p>Remove ctrl-cv from your AI app, or remove its access from your <a href="https://myaccount.google.com/connections">Google account</a>. Disconnecting doesn't delete your clips, which you can delete on the web.</p>
+
+    <h2>Privacy and support</h2>
+    <p>ctrl-cv only receives the text an AI sends when you ask it to copy. It doesn't read your conversations. See the <a href={`${base}/privacy/`}>Privacy Policy</a> and <a href={`${base}/terms/`}>Terms</a>. For help, email <a href="mailto:help@ctrl-cv.io">help@ctrl-cv.io</a>.</p>
+  </article>
+</Layout>
