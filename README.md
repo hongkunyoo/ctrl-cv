@@ -11,7 +11,7 @@ A personal clipboard for your AI apps, over [MCP](https://modelcontextprotocol.i
 
 ## Connect
 
-Add `https://app.ctrl-cv.io/mcp` as a remote MCP server or custom connector in your AI app, then sign in with Google.
+On Claude, add ctrl-cv from the [Connectors Directory](https://claude.ai/directory/connectors/ctrl-cv). In any other app, add `https://app.ctrl-cv.io/mcp` as a remote MCP server or custom connector, then sign in with Google.
 
 ## Tools
 
