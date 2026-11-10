@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 
 const mcpUrl = 'https://app.ctrl-cv.io/mcp';
 const title = 'ctrl-cv: Copy and Paste Between ChatGPT, Claude & AI Apps';
-const description = 'A shared clipboard for your AI apps. Save text in ChatGPT, Claude, or any MCP app and paste it into another. First 30 copies free.';
+const description = 'A shared clipboard for your AI apps. Save text in ChatGPT, Claude, Gemini, or any MCP app and paste it into another. First 30 copies free.';
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
@@ -69,7 +69,7 @@ const structuredData = {
       <code id="mcp-url">{mcpUrl}</code>
       <button id="copy-url" type="button">Copy</button>
     </div>
-    <p class="note">Works with apps that support remote MCP servers, such as Claude and ChatGPT. See the <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/docs/`}>docs</a> for examples and troubleshooting. Questions? Email <a href="mailto:help@ctrl-cv.io">help@ctrl-cv.io</a>.</p>
+    <p class="note">Works with apps that support remote MCP servers, such as Claude, ChatGPT, and Gemini. See the <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/docs/`}>docs</a> for examples and troubleshooting. Questions? Email <a href="mailto:help@ctrl-cv.io">help@ctrl-cv.io</a>.</p>
   </section>
 
   <section class="band">
