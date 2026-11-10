@@ -49,7 +49,7 @@ a { color: inherit; }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0; }
-.brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-weight: 700; font-size: 18px; text-decoration: none; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-weight: 700; font-size: 20px; text-decoration: none; }
 .brand svg { display: block; flex: none; }
 .nav-links { display: flex; align-items: center; gap: 24px; font-size: 16px; font-weight: 500; }
 .nav-links a { text-decoration: none; }
