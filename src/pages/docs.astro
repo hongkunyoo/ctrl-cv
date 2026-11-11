@@ -8,7 +8,7 @@ const mcpUrl = 'https://app.ctrl-cv.io/mcp';
 <Layout title="ctrl-cv Docs: Connect and Use Your AI Clipboard" description="How to connect ctrl-cv to Claude, ChatGPT, Gemini, or any MCP app, what its copy and paste tools do, example prompts, limits, and troubleshooting.">
   <article class="legal">
     <h1>ctrl-cv docs</h1>
-    <p class="updated">Last updated: November 9, 2026</p>
+    <p class="updated">Last updated: November 11, 2026</p>
 
     <p>ctrl-cv is a personal clipboard for your AI apps. You ask one AI to copy text, then ask another to paste it. Each Google account has its own clipboard.</p>
 
@@ -16,11 +16,48 @@ const mcpUrl = 'https://app.ctrl-cv.io/mcp';
     <p>On Claude, <a href="https://claude.ai/directory/connectors/ctrl-cv">add ctrl-cv from the Connectors Directory</a>. In any other app that supports remote MCP servers:</p>
     <ol>
       <li>Copy this address: <code>{mcpUrl}</code></li>
-      <li>In your AI app, add it as a remote MCP server or custom connector. Claude, ChatGPT, and Gemini all support this.</li>
+      <li>In your AI app, add it as a remote MCP server or custom connector. The steps for each tested app are below.</li>
       <li>When the app asks you to sign in, continue with Google. Use the same Google account in every app, because each account has its own clipboard.</li>
       <li>Ask your AI to copy something to ctrl-cv.</li>
     </ol>
     <p>You can see and delete your clips at <a href="https://app.ctrl-cv.io/clips">app.ctrl-cv.io/clips</a>.</p>
+
+    <h2 id="tested-apps">Tested apps</h2>
+    <p>ctrl-cv has been tested with the apps below. Menu names change from version to version, so look for the nearest match. Any other app that supports remote MCP servers with OAuth should work too.</p>
+
+    <h3>Claude</h3>
+    <p>Add ctrl-cv from the <a href="https://claude.ai/directory/connectors/ctrl-cv">Connectors Directory</a>, or add a custom connector with <code>{mcpUrl}</code> in Settings, under Connectors. It works on claude.ai, the desktop app, and the mobile app once added.</p>
+
+    <h3>ChatGPT</h3>
+    <p>In Settings, under Apps and connectors, add a custom connector with <code>{mcpUrl}</code> and OAuth. Custom connectors may need developer mode turned on, depending on your plan.</p>
+
+    <h3>Gemini</h3>
+    <p>In Settings, under Connectors, add a custom connector with <code>{mcpUrl}</code>. Leave the client ID and secret empty.</p>
+
+    <h3>Claude Code</h3>
+    <pre><code>claude mcp add --transport http ctrl-cv {mcpUrl}</code></pre>
+    <p>Then run <code>/mcp</code> in Claude Code and choose ctrl-cv to sign in.</p>
+
+    <h3>Codex</h3>
+    <pre><code>codex mcp add ctrl-cv --url {mcpUrl}</code></pre>
+    <p>If a browser doesn't open to sign in, run <code>codex mcp login ctrl-cv</code>.</p>
+
+    <h3>Cursor</h3>
+    <p>In Cursor Settings, under MCP, add a custom server, or add this to <code>~/.cursor/mcp.json</code>, then sign in when Cursor asks:</p>
+    <pre><code>{`{
+  "mcpServers": {
+    "ctrl-cv": { "url": "${mcpUrl}" }
+  }
+}`}</code></pre>
+
+    <h3>VS Code</h3>
+    <p>Run <strong>MCP: Add Server</strong> from the Command Palette, choose HTTP, and enter <code>{mcpUrl}</code>. Or add this to <code>mcp.json</code>:</p>
+    <pre><code>{`{
+  "servers": {
+    "ctrl-cv": { "type": "http", "url": "${mcpUrl}" }
+  }
+}`}</code></pre>
+    <p>Start the server and sign in when asked, then use ctrl-cv in Copilot Chat's agent mode.</p>
 
     <h2>Tools</h2>
     <ul>

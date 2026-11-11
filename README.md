@@ -13,6 +13,13 @@ A personal clipboard for your AI apps, over [MCP](https://modelcontextprotocol.i
 
 On Claude, add ctrl-cv from the [Connectors Directory](https://claude.ai/directory/connectors/ctrl-cv). In any other app, add `https://app.ctrl-cv.io/mcp` as a remote MCP server or custom connector, then sign in with Google.
 
+Tested with Claude, ChatGPT, Gemini, Claude Code, Codex, Cursor, and VS Code. See the [docs](https://ctrl-cv.io/docs/#tested-apps) for each app's steps.
+
+```bash
+claude mcp add --transport http ctrl-cv https://app.ctrl-cv.io/mcp   # Claude Code
+codex mcp add ctrl-cv --url https://app.ctrl-cv.io/mcp               # Codex
+```
+
 ## Tools
 
 | Tool | Input | Result |
