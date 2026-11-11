@@ -150,6 +150,11 @@ footer { border-top: 1px solid var(--rule); padding: 32px 0 48px; color: var(--m
 .pricing-head { padding: 48px 0 40px; }
 .pricing-head h1 { font-size: clamp(50px, 7vw, 84px); }
 .pricing-head .lede { margin-bottom: 0; }
+.pricing-head .lede strong { color: var(--ink); font-weight: 700; }
+.trial-steps { display: flex; flex-wrap: wrap; gap: 12px 36px; list-style: none; margin: 0 0 32px; padding: 0; font-size: 16px; font-weight: 500; }
+.trial-steps li { display: flex; align-items: center; gap: 10px; }
+.trial-steps li + li::before { content: "→"; margin-right: 26px; color: var(--muted); }
+.trial-steps span { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: var(--selection); color: var(--on-selection); font-size: 14px; font-weight: 700; }
 
 .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 72px; border: 1px solid var(--rule); }
 .plan { padding: 28px; }
@@ -181,6 +186,8 @@ footer { border-top: 1px solid var(--rule); padding: 32px 0 48px; color: var(--m
   .lede { font-size: 19px; }
   .film { padding-bottom: 48px; }
   .pricing-head { padding: 24px 0 32px; }
+  .trial-steps { flex-direction: column; gap: 10px; }
+  .trial-steps li + li::before { content: none; }
   .plans { grid-template-columns: 1fr; margin-bottom: 48px; }
   .plan + .plan { border-left: 0; border-top: 1px solid var(--rule); }
   .price-note { min-height: 0; }
