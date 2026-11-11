@@ -20,11 +20,16 @@ const sales = 'mailto:help@ctrl-cv.io?subject=ctrl-cv%20Enterprise';
     <li><span>3</span>Subscribe only if you want more</li>
   </ol>
 
-  <section class="plans" aria-label="Plans">
+  <div class="billing-toggle" role="group" aria-label="Billing period" hidden>
+    <button type="button" data-show="month" aria-pressed="true">Monthly</button>
+    <button type="button" data-show="year" aria-pressed="false">Yearly</button>
+  </div>
+
+  <section class="plans" aria-label="Plans" data-cycle="month">
     <article class="plan">
       <h2>Standard</h2>
       <p class="price">Free<span> to start</span></p>
-      <p class="price-note">Then $4 a month after your 30 free copies, or $36 billed yearly.</p>
+      <p class="price-note"><span data-cycle="month"><strong>$4 / month</strong> after 30 free copies.</span><span data-cycle="year"><strong>$36 / year</strong> after 30 free copies, $3 a month.</span></p>
       <a class="button" href="https://app.ctrl-cv.io/login">Try free, no card</a>
       <p class="trial-note">You won't be asked to pay until your 30 free copies are used, and only if you choose to subscribe.</p>
       <ul>
@@ -40,8 +45,9 @@ const sales = 'mailto:help@ctrl-cv.io?subject=ctrl-cv%20Enterprise';
 
     <article class="plan">
       <h2>Pro <span class="soon">Coming soon</span></h2>
-      <p class="price">$7<span> / month</span></p>
-      <p class="price-note">Or $60 billed yearly, about $5 a month.</p>
+      <p class="price" data-cycle="month">$7<span> / month</span></p>
+      <p class="price" data-cycle="year">$60<span> / year</span></p>
+      <p class="price-note"><span data-cycle="month">Billed monthly.</span><span data-cycle="year">Billed yearly, about $5 a month.</span></p>
       <a class="button ghost" href={waitlist}>Join the waitlist</a>
       <p class="includes">Everything in Standard, plus:</p>
       <ul>
@@ -88,3 +94,18 @@ const sales = 'mailto:help@ctrl-cv.io?subject=ctrl-cv%20Enterprise';
     </details>
   </section>
 </Layout>
+
+<script>
+  // Monthly is shown without JavaScript; the toggle appears once it can work.
+  const toggle = document.querySelector<HTMLElement>('.billing-toggle');
+  const plans = document.querySelector<HTMLElement>('.plans');
+  if (toggle && plans) {
+    toggle.hidden = false;
+    toggle.querySelectorAll<HTMLButtonElement>('button').forEach((button) => {
+      button.addEventListener('click', () => {
+        plans.dataset.cycle = button.dataset.show;
+        toggle.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+      });
+    });
+  }
+</script>

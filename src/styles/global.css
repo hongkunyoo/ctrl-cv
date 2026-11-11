@@ -166,6 +166,12 @@ footer { border-top: 1px solid var(--rule); padding: 32px 0 48px; color: var(--m
 .price-note { margin: 8px 0 20px; min-height: 3.2em; color: var(--muted); font-size: 16px; }
 .includes { margin: 24px 0 -12px; font-size: 16px; font-weight: 700; }
 .trial-note { margin: 12px 0 0; color: var(--muted); font-size: 15px; }
+.price-note strong { color: var(--ink); font-weight: 700; }
+.plans[data-cycle="month"] [data-cycle="year"], .plans[data-cycle="year"] [data-cycle="month"] { display: none; }
+.billing-toggle { display: inline-flex; margin: 0 0 16px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; }
+.billing-toggle[hidden] { display: none; }
+.billing-toggle button { min-height: 36px; padding: 0 18px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; }
+.billing-toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
 .plan ul { list-style: none; margin: 24px 0 0; padding: 0; }
 .plan li { padding: 9px 0; border-top: 1px solid var(--line); font-size: 16px; }
 
