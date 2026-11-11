@@ -26,6 +26,7 @@ codex mcp add ctrl-cv --url https://app.ctrl-cv.io/mcp               # Codex
 |---|---|---|
 | `copy` | `content`, up to 1,000,000 bytes of UTF-8 | The new clip's id |
 | `paste` | `id`, optional | That clip's text, or your most recent clip |
+| `list` | `page`, optional | 20 clips at a time, newest first, with ids and 80-character previews |
 
 Your first 30 copies are free, with no card needed. See [pricing](https://ctrl-cv.io/pricing/), the [privacy policy](https://ctrl-cv.io/privacy/), and the [terms](https://ctrl-cv.io/terms/).
 

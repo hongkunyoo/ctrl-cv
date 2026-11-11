@@ -63,6 +63,7 @@ const mcpUrl = 'https://app.ctrl-cv.io/mcp';
     <ul>
       <li><strong><code>copy</code></strong> saves the text you ask for, exactly as written, and returns the clip's id. It takes <code>content</code>, up to 1,000,000 bytes of UTF-8.</li>
       <li><strong><code>paste</code></strong> returns a saved clip's text. It takes an optional <code>id</code>. Without one, you get your most recent clip. It only reads.</li>
+      <li><strong><code>list</code></strong> lists your clips, newest first, 20 at a time: each clip's id, when it was saved, its length, and its first 80 characters. It takes an optional <code>page</code>, starting at 1, and says how many clips there are in all, so your AI can look further back. It only reads.</li>
     </ul>
 
     <h2>Example prompts</h2>
@@ -72,6 +73,7 @@ const mcpUrl = 'https://app.ctrl-cv.io/mcp';
       <li>"Copy the code block above to ctrl-cv and tell me the id."</li>
       <li>"Paste ctrl-cv clip 3f2a9c1e."</li>
       <li>"Paste my latest ctrl-cv clip and turn it into a checklist."</li>
+      <li>"What's in my ctrl-cv? Paste the meeting notes I saved yesterday."</li>
     </ul>
 
     <h2>Limits</h2>
