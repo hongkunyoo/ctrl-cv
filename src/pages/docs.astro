@@ -8,7 +8,7 @@ const mcpUrl = 'https://app.ctrl-cv.io/mcp';
 <Layout title="ctrl-cv Docs: Connect and Use Your AI Clipboard" description="How to connect ctrl-cv to Claude, ChatGPT, Gemini, or any MCP app, what its copy and paste tools do, example prompts, limits, and troubleshooting.">
   <article class="legal">
     <h1>ctrl-cv docs</h1>
-    <p class="updated">Last updated: November 11, 2026</p>
+    <p class="updated">Last updated: November 14, 2026</p>
 
     <p>ctrl-cv is a personal clipboard for your AI apps. You ask one AI to copy text, then ask another to paste it. Each Google account has its own clipboard.</p>
 
@@ -18,9 +18,16 @@ const mcpUrl = 'https://app.ctrl-cv.io/mcp';
       <li>Copy this address: <code>{mcpUrl}</code></li>
       <li>In your AI app, add it as a remote MCP server or custom connector. The steps for each tested app are below.</li>
       <li>When the app asks you to sign in, continue with Google. Use the same Google account in every app, because each account has its own clipboard.</li>
-      <li>Ask your AI to copy something to ctrl-cv.</li>
+      <li>Try your first copy and paste, below.</li>
     </ol>
-    <p>You can see and delete your clips at <a href="https://app.ctrl-cv.io/clips">app.ctrl-cv.io/clips</a>.</p>
+
+    <h2 id="first-copy">Your first copy and paste</h2>
+    <p>Once ctrl-cv is connected, there's nothing else to set up. Just ask in plain words.</p>
+    <p>1. In one AI app, after any answer, type:</p>
+    <pre><code>Copy your last answer to ctrl-cv.</code></pre>
+    <p>2. In another AI app, signed in with the same Google account, type:</p>
+    <pre><code>Paste from ctrl-cv.</code></pre>
+    <p>The second app gets the exact text the first one saved. You can see and delete your clips at <a href="https://app.ctrl-cv.io/clips">app.ctrl-cv.io/clips</a>. More prompts are in <a href="#example-prompts">Example prompts</a>.</p>
 
     <h2 id="tested-apps">Tested apps</h2>
     <p>ctrl-cv has been tested with the apps below. Menu names change from version to version, so look for the nearest match. Any other app that supports remote MCP servers with OAuth should work too.</p>
@@ -66,7 +73,7 @@ const mcpUrl = 'https://app.ctrl-cv.io/mcp';
       <li><strong><code>list</code></strong> lists your clips, newest first, 20 at a time: each clip's id, when it was saved, its length, and its first 80 characters. It takes an optional <code>page</code>, starting at 1, and says how many clips there are in all, so your AI can look further back. It only reads.</li>
     </ul>
 
-    <h2>Example prompts</h2>
+    <h2 id="example-prompts">Example prompts</h2>
     <ul>
       <li>"Copy your last answer to ctrl-cv."</li>
       <li>"Paste from ctrl-cv."</li>
